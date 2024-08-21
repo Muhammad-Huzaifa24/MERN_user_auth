@@ -8,7 +8,12 @@ const app = express();
 
 // Middlewares
 
-app.use(cors({ origin: "http://localhost:3000" }));
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://mern-user-auth.vercel.app/"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
