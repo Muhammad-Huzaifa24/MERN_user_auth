@@ -129,7 +129,6 @@ const handleGoogleLogin = async (req, res) => {
       return res.status(400).json({ message: "Google token is required" });
     }
 
-    // Verify Google token
     const ticket = await client.verifyIdToken({
       idToken: googleToken,
       audience: process.env.CLIENT_ID,
@@ -149,11 +148,15 @@ const handleGoogleLogin = async (req, res) => {
     let user = await User.findOne({ email });
     if (!user) {
       // Create a new user if they don't exist
+
       user = new User({
         name,
         email,
         profilePicture: picture,
       });
+      const randomPassword = crypto.randomBytes(8).toString("hex");
+      user.password = await bcrypt.hash(randomPassword, 10);
+
       await user.save();
     }
 
@@ -168,7 +171,7 @@ const handleGoogleLogin = async (req, res) => {
       user: { name: user.name, profilePicture: user.profilePicture },
     });
   } catch (error) {
-    console.error("Google login error:", error);
+    console.error("Google login error:", error.message);
     res.status(500).json({ message: "Server error" });
   }
 };

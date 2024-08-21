@@ -32,7 +32,10 @@ export const loginUser = async (formData) => {
 // login user with google
 
 export const loginWithGoogle = async (googleToken) => {
+  console.log("inside user service");
+  console.log("token", googleToken);
   try {
+    console.log("inside try block");
     const response = await axios.post(`${API_URL}/google-login`, {
       googleToken,
     });

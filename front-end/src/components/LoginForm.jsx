@@ -42,9 +42,7 @@ const LoginForm = () => {
       localStorage.setItem("userName", user.name);
 
       navigate("/home");
-      toast.success("Login Successfully", {
-        duration: "1000",
-      });
+      toast.success("Login Successfully");
     } catch (error) {
       console.error("Error logging in:", error);
       setTimeout(() => {
