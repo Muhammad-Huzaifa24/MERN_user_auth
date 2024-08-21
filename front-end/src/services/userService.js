@@ -1,8 +1,7 @@
 import axios from "axios";
 
 // const API_URL = "http://localhost:3001/api";
-const API_URL =
-  "https://userauth-6au4mhaep-muhammad-huzaifa24s-projects.vercel.app/api";
+const API_URL = "https://mern-user-auth.vercel.app/api";
 
 // signup user
 
