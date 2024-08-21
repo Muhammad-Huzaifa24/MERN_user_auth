@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL_REMOTE;
+// const API_URL = "http://localhost:3001/api";
+const API_URL =
+  "https://userauth-6au4mhaep-muhammad-huzaifa24s-projects.vercel.app/api";
 
 // signup user
 
