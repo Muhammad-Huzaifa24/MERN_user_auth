@@ -9,7 +9,10 @@ const app = express();
 // Middlewares
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://mern-user-auth.vercel.app"],
+  origin: [
+    "https://user-auth-app-five.vercel.app",
+    "https://mern-user-auth.vercel.app",
+  ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 200,
