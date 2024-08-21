@@ -1,19 +1,22 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import useUserStore from "../hooks/useUserData";
 import LoginSvg from "../assets/LoginIcon";
 import { loginWithGoogle } from "../services/userService";
+import { useState } from "react";
+import Loader from "./Loader";
 
 const FormCard = ({ title, children }) => {
+  const [isLoading, setIsLoading] = useState(false); // Manage loading state
   const { setUser } = useUserStore();
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleGoogleSuccess = async (response) => {
+    setIsLoading(true);
     console.log("inside handle google sign in");
     const googleToken = response.credential;
     try {
@@ -32,11 +35,14 @@ const FormCard = ({ title, children }) => {
       toast.error(
         "Login with Google Failed: " + (error.message || "Something went wrong")
       );
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleGoogleError = () => {
     toast.error("Login with Google Failed");
+    setIsLoading(false);
   };
   return (
     <div className="form-card">
@@ -53,14 +59,20 @@ const FormCard = ({ title, children }) => {
         <LoginSvg />
       </div>
       <div className="form-content">
-        {children}
-        <p style={{ margin: "10px" }}>or</p>
-        <div className="social-login">
-          <GoogleLogin
-            onSuccess={handleGoogleSuccess}
-            onError={handleGoogleError}
-          />
-        </div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            {children}
+            <p style={{ margin: "10px" }}>or</p>
+            <div className="social-login">
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

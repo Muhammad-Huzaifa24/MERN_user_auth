@@ -4,7 +4,6 @@ import Loader from "./Loader";
 import { toast } from "react-hot-toast";
 
 const ForgotPasswordModal = ({ onClose }) => {
-  console.log("forgot password modal");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 

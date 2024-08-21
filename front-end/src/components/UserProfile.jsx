@@ -8,7 +8,6 @@ const UserProfile = () => {
   const [editableUser, setEditableUser] = useState({});
   const [originalUser, setOriginalUser] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [isChangingPassword, setIsChangingPassword] = useState(false);
 
   const handleChangePasswordClick = () => {

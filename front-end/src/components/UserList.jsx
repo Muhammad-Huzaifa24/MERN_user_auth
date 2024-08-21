@@ -14,7 +14,7 @@ const UserList = () => {
         await fetchAllUsers();
         setTimeout(() => setLoading(false), 1000);
       } catch (err) {
-        setError("Failed to fetch users");
+        setError(err.message);
         setLoading(false);
       }
     };
@@ -22,30 +22,30 @@ const UserList = () => {
     loadData();
   }, [fetchAllUsers]);
 
-  if (loading)
-    return (
-      <p>
-        <Loader />
-      </p>
-    );
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="user-list">
-      {users.map((user) => (
-        <div key={user._id} className="user-card">
-          <img
-            src={user.profilePicture}
-            alt={user.name}
-            className="user-avatar"
-          />
-          <div className="user-details">
-            <p className="user-name">{user.name}</p>
-            <p className="user-email">{user.email}</p>
-          </div>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="user-list">
+          {users.map((user) => (
+            <div key={user._id} className="user-card">
+              <img
+                src={user.profilePicture}
+                alt={user.name}
+                className="user-avatar"
+              />
+              <div className="user-details">
+                <p className="user-name">{user.name}</p>
+                <p className="user-email">{user.email}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      )}
+    </>
   );
 };
 
