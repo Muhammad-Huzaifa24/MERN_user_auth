@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // connect mongoDb
-connectMongoDb("mongodb://localhost:27017/auth-app").then(() => {
+connectMongoDb(process.env.MONGODB_URL_REMOTE).then(() => {
   console.log("MongoDb connected");
 });
 
