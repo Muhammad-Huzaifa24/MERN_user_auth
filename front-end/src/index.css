@@ -1,0 +1,703 @@
+/* 
+#################################
+
+            Loader.css 
+
+#################################
+*/
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 
+
+#################################
+
+      Form card styling 
+
+#################################
+
+*/
+
+.form-card {
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin: 2rem auto;
+  margin-bottom: 0;
+  min-width: 300px;
+}
+.sign-up-form {
+  margin: 2rem auto;
+}
+form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 1rem;
+  min-width: 200px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.social-button.google {
+  color: #4285f4;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+}
+.social-button.google:hover {
+  background-color: rgb(203, 226, 246);
+}
+
+.social-button.facebook {
+  color: #1877f2;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+}
+.social-button.facebook:hover {
+  background-color: rgb(203, 226, 246);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+.switch-to-login-signup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.switch-to-login-signup:hover {
+  text-decoration: underline;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* 
+
+#################################
+
+    Profile component styling 
+
+#################################
+
+*/
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: #333;
+  color: white;
+  border-radius: 0 0 15px 15px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  border: 1px solid grey;
+}
+
+.user-name {
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+}
+.user-email {
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-menu a.active {
+  font-weight: bold;
+  border-bottom: 1px solid grey;
+  color: gray;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: grey;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-top: none;
+}
+.logout-btn:hover {
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+.user-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.user-card {
+  width: 300px;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 2rem 0;
+  background-color: #d4d2ff;
+  transition: background-color 0.6s ease;
+}
+.user-card:hover {
+  background-color: #f9e6e6;
+  border-bottom: 1px solid #110e4b;
+  border-radius: 0;
+}
+.user-card img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #d9d5d5;
+  border-radius: 50%;
+}
+.user-details {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu-div {
+  display: flex;
+  gap: 20px;
+}
+
+/* 
+#################################
+
+  Profile pic updated styling 
+
+#################################
+
+*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: black;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  background: lightgrey;
+  border-radius: 10px;
+  max-width: 600px;
+  min-width: 350px;
+}
+.modal-content input {
+  margin: 10px 0px;
+}
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+  width: 80px;
+  /* height: 60px; */
+  border-radius: 20%;
+  border: 1px solid #afacac;
+  padding: 4px;
+}
+.upload-close-btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.upload-btn,
+.close-btn {
+  background: green;
+  border: none;
+  color: white;
+  display: inline;
+  padding: 10px 0px;
+  width: 30%;
+  border-radius: 50px;
+}
+.close-btn {
+  background-color: transparent;
+  border: 1px solid green;
+  color: green;
+}
+.close-btn:hover {
+  background-color: green;
+  border: none;
+  color: white;
+}
+
+/* 
+#################################
+
+User profile information styling 
+
+#################################
+
+*/
+.user-profile-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 14px 10px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+}
+
+.user-profile-avatar {
+  margin-right: 20px;
+}
+
+.user-profile-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile-info {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.user-profile-field {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-field label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-profile-field input,
+.user-profile-field select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 200px;
+  width: calc(100% - 120px);
+}
+
+.user-profile-actions {
+  margin-top: 20px;
+}
+
+.user-profile-actions button {
+  padding: 10px 50px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile-save-cancel-btn {
+  display: flex;
+  gap: 1rem;
+}
+.user-profile-actions .cancel-btn {
+  background-color: #ff4d00;
+  transition: background-color 0.3s ease;
+}
+.user-profile-actions .save-btn {
+  background-color: #11430e;
+  transition: background-color 0.3s ease;
+}
+.user-profile-actions .edit-btn {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+.user-profile-actions .save-btn:hover {
+  background-color: #469a42;
+}
+.user-profile-actions .cancel-btn:hover {
+  background-color: #f78f63;
+}
+.user-profile-actions .edit-btn:hover {
+  background-color: #7b7979;
+}
+#user-name,
+#user-email {
+  margin-left: 0.7rem;
+}
+
+#number {
+  margin-left: 1.5rem;
+}
+
+/* Modal.css */
+.password-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.password-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.password-h2 {
+  margin: 1rem;
+}
+
+.password-form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.password-form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.password-form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  margin: 0.5rem;
+}
+
+.password-error {
+  color: red;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.password-form-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10x;
+}
+
+.password-form-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.password-form-actions button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  flex: 1;
+}
+.password-form-actions button[type="submit"]:hover {
+  background-color: #9dd49f;
+  color: white;
+  flex: 1;
+}
+
+.password-form-actions button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+.password-form-actions button[type="button"]:hover {
+  background-color: #db9a96;
+  color: white;
+}
+/* forgot password modal styling */
+/* styles.css */
+.forgot-pass-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-pass-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}
+.forgot-pass-modal-content form {
+  margin: 0 auto;
+}
+.forgot-pass-modal-content form p {
+  margin: 1rem 0rem;
+}
+.forgot-pass-modal-content h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.forgot-pass-close-button {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+/* 
+
+#################################
+
+          Media quries
+
+#################################
+
+
+*/
+
+@media (max-width: 768px) {
+  .menu-div {
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-menu {
+    position: absolute;
+    border-radius: 10px;
+    top: 70px;
+    right: 70;
+    background-color: #333;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+    transform: translateX(100%);
+    width: 200px;
+    display: none;
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 50px;
+    background-color: #050628;
+  }
+  .nav-menu a.active {
+    border-bottom: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  .logout-btn {
+    border-top: 1px solid gray;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 645px) {
+  .user-profile-card {
+    flex-direction: column;
+  }
+  .user-profile-avatar {
+    margin-right: 0;
+  }
+  .user-profile-avatar img {
+    margin-bottom: 2rem;
+  }
+  .user-profile-actions button {
+    width: 100%;
+  }
+}
+@media (max-width: 525px) {
+  .profile-save-cancel-btn {
+    flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  .upload-close-btn-div {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+@media (max-width: 375px) {
+  .user-profile-field {
+    flex-direction: column;
+  }
+
+  #user-email,
+  #user-name,
+  #number {
+    margin-left: 0px;
+  }
+}
