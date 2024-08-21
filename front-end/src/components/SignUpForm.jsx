@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signUpUser } from "../services/userService";
+import Loader from "./Loader";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -69,107 +70,113 @@ const SignupForm = () => {
   };
 
   return (
-    <FormCard title="Sign Up">
-      <form>
-        <div className="form-row">
-          <div className="form-group">
+    <>
+      {uploading ? (
+        <Loader />
+      ) : (
+        <FormCard title="Sign Up">
+          <form>
+            <div className="form-row">
+              <div className="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="age"
+                  id="age"
+                  value={formData.age}
+                  onChange={handleInputChange}
+                  placeholder="Age"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <select
+                  name="gender"
+                  id="gender"
+                  value={formData.gender}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Select your gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirm-password"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  placeholder="Confirm Password"
+                  required
+                />
+              </div>
+            </div>
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
+              style={{
+                width: "100%",
+                marginTop: "1rem",
+                background: "#f2ebfd",
+              }}
+              type="file"
+              name="profilePicture"
+              accept="image/*"
               onChange={handleInputChange}
-              placeholder="Email"
-              required
             />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Your Name"
-              required
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <input
-              type="text"
-              name="age"
-              id="age"
-              value={formData.age}
-              onChange={handleInputChange}
-              placeholder="age"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <select
-              name="gender"
-              id="gender"
-              value={formData.gender}
-              onChange={handleInputChange}
+            <button
+              type="submit"
+              className="submit-button"
+              onClick={handleSubmit}
+              disabled={uploading}
             >
-              <option value="">Select your gender</option>
-              <option value="male">male</option>
-              <option value="female">female</option>
-              <option value="other">other</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirm-password"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              placeholder="Confirm Password"
-              required
-            />
-          </div>
-        </div>
-        <input
-          style={{
-            width: "100%",
-            marginTop: "1rem",
-            background: "#f2ebfd",
-          }}
-          type="file"
-          name="profilePicture"
-          accept="image/*"
-          onChange={handleInputChange}
-        />
-        <button
-          type="submit"
-          className="submit-button"
-          onClick={handleSubmit}
-          disabled={uploading}
-        >
-          {uploading ? "Signing Up..." : "Sign Up"}
-        </button>
-        <div className="switch-to-login-signup">
-          <span>Already have an account?</span>
-          <Link to="/">Login</Link>
-        </div>
-      </form>
-    </FormCard>
+              Sign Up
+            </button>
+            <div className="switch-to-login-signup">
+              <span>Already have an account?</span>
+              <Link to="/">Login</Link>
+            </div>
+          </form>
+        </FormCard>
+      )}
+    </>
   );
 };
 
