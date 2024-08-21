@@ -24,6 +24,9 @@ app.use("/api", userRoutes);
 app.get("/", (req, res) => {
   res.send("<h1>Hello from back end</h1>");
 });
+app.get("/server", (req, res) => {
+  res.send("<h1>this is server route</h1>");
+});
 
 const PORT = process.env.PORT;
 
