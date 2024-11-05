@@ -12,27 +12,41 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  return (
-    <>
-      <GoogleOAuthProvider clientId="317875286124-3pv3tnu45k0mrk7agfgri20db0rog28u.apps.googleusercontent.com">
-        <Router>
-          <AuthProvider>
-            <Toaster />
-            <Routes>
-              <Route path="/" element={<LoginForm />} />
-              <Route path="/signup" element={<SignupForm />} />
-              <Route path="/user-list" element={<UserList />}></Route>
-              <Route
-                path="/home"
-                element={<PrivateRoute element={<Profile />} />}
-              />
-              <Route path="*" element={<NotFound />}></Route>
-            </Routes>
-          </AuthProvider>
-        </Router>
-      </GoogleOAuthProvider>
-    </>
-  );
+	return (
+		<>
+			<GoogleOAuthProvider
+				clientId={process.env.REACT_APP_GOOLE_AUTH_CLIENT_ID}
+			>
+				<Router>
+					<AuthProvider>
+						<Toaster />
+						<Routes>
+							<Route
+								path="/"
+								element={<LoginForm />}
+							/>
+							<Route
+								path="/signup"
+								element={<SignupForm />}
+							/>
+							<Route
+								path="/user-list"
+								element={<UserList />}
+							></Route>
+							<Route
+								path="/home"
+								element={<PrivateRoute element={<Profile />} />}
+							/>
+							<Route
+								path="*"
+								element={<NotFound />}
+							></Route>
+						</Routes>
+					</AuthProvider>
+				</Router>
+			</GoogleOAuthProvider>
+		</>
+	);
 };
 
 export default App;
